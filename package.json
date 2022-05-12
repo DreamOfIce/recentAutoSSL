@@ -1,0 +1,28 @@
+{
+  "name": "recentautossl",
+  "version": "1.0.0",
+  "description": "自动申请并续期锐成信息的免费SSL,支持通配符",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DreamOfIce/recentAutoSSL.git"
+  },
+  "keywords": [
+    "ssl",
+    "racent",
+    "freessl"
+  ],
+  "author": "冰雪殇璃陌梦",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DreamOfIce/recentAutoSSL/issues"
+  },
+  "homepage": "https://github.com/DreamOfIce/recentAutoSSL#readme",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "commander": "^9.2.0"
+  }
+}
