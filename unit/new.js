@@ -66,9 +66,9 @@ export default async (token, domains, verifyType) => {
     //进行所有权验证
     const verifyInfo = await getVerifyValue(token, certId, verifyType);
     if (verifyType == 'dns') {
-        dnsVerify(verifyInfo.name, verifyInfo.value);
+        dnsVerify(domains,verifyInfo.name, verifyInfo.value);
     } else if (verifyType == 'file') {
-        fileVerify(verifyInfo.name, verifyInfo.value);
+        fileVerify(domains,verifyInfo.name, verifyInfo.value);
     }
     for (var i = 0; i < 20; i++) {
         process.stdout.write(`第${i}次检查证书申请状态...`)
@@ -78,7 +78,15 @@ export default async (token, domains, verifyType) => {
         }).status;
         switch (status) {
             case 'COMPLETE':
-                console.log("证书申请成功!")
+                console.log("证书申请成功!");
+                break;
+            case 'PENDING':
+                console.log(`验证未完成,等待${sleepTime}秒后再次尝试`);
+            case 'CANCELLED':
+                console.warn("订单被取消,尝试重新创建");
+                break;
+            default:
+                console.error("未知订单状态,申请失败!");
         }
     }
 }
