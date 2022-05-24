@@ -23,6 +23,7 @@
   "homepage": "https://github.com/DreamOfIce/recentAutoSSL#readme",
   "dependencies": {
     "axios": "^0.27.2",
-    "commander": "^9.2.0"
+    "commander": "^9.2.0",
+    "shelljs": "^0.8.5"
   }
 }
